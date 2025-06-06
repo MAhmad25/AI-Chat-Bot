@@ -1,7 +1,8 @@
 const Header = () => {
       return (
-            <div className="w-full py-10 flex justify-center items-center">
-                  <h1 className="text-2xl text-white font-semibold leading-none tracking-tighter">ChatPodia</h1>
+            <div className="w-full h-20 flex flex-col justify-center items-center">
+                  <h1 className="text-xl text-white font-semibold leading-none tracking-tighter">Hi I'm Ahmad</h1>
+                  <span class="loader"></span>
             </div>
       );
 };
