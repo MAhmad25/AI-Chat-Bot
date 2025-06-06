@@ -2,6 +2,7 @@
       "name": "ai-chat-bot",
       "private": true,
       "version": "0.0.0",
+      "author": "Ahmad Latif",
       "type": "module",
       "scripts": {
             "dev": "vite",

@@ -1,10 +1,12 @@
 import Background from "./components/Background";
+import Main from "./components/Main";
 
 const App = () => {
       return (
-            <div className="bg-zinc-800 text-white w-full h-screen">
+            <main className="bg-zinc-800 relative text-white w-full h-dvh">
                   <Background />
-            </div>
+                  <Main />
+            </main>
       );
 };
 
