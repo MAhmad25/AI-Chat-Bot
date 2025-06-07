@@ -3,15 +3,16 @@ import { ChatPodia } from "../contexts/Context";
 import toast from "react-hot-toast";
 
 const ChatContainer = () => {
-      const { userPrompt, chatResponse, loading, error } = useContext(ChatPodia);
+      const { chatResponse, promptDiv, loading, error } = useContext(ChatPodia);
       if (error) {
-            toast(error);
+            toast.error(error);
       }
+
       return (
-            <section className="w-full no-scroll h-3/4 overflow-y-scroll  relative ">
-                  {userPrompt ? (
-                        <div className="w-fit p-3 h-fit max-w-1/2 flex justify-center items-center absolute right-2 rounded-xl rounded-br-none sm:rounded-l-full sm:rounded-tr-full bg-black">
-                              <p className="text-white tracking-tighter leading-none">{userPrompt}</p>
+            <section className="w-full no-scroll  h-3/4 overflow-y-scroll">
+                  {promptDiv ? (
+                        <div className="w-fit p-3 h-fit  mb-2 max-w-1/2 flex justify-center items-center  rounded-xl sm:rounded-l-none rounded-tl-none sm:rounded-bl-xl  sm:rounded-tr-xl bg-black/20">
+                              <p className="text-white tracking-tighter leading-5">{promptDiv} ?</p>
                         </div>
                   ) : null}
                   {loading ? (
@@ -24,9 +25,11 @@ const ChatContainer = () => {
                               <div class="absolute bottom-5 right-0 h-4 w-4 rounded-full bg-white/40"></div>
                         </div>
                   ) : (
-                        <div className="w-fit px-2 h-fit ">
-                              <pre className="text-xs sm:text-xl tracking-tight text-white ">{chatResponse} </pre>
-                        </div>
+                        chatResponse && (
+                              <div className="w-fit min-w-full px-3 pt-3  h-fit bg-black/60 backdrop-blur-xl rounded-xl ">
+                                    <pre className="text-xs sm:text-xl tracking-tight text-white ">{chatResponse} </pre>
+                              </div>
+                        )
                   )}
             </section>
       );

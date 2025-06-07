@@ -5,9 +5,7 @@ import App from "./App.jsx";
 import ContextProvider from "./contexts/ChatProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
-      <StrictMode>
-            <ContextProvider>
-                  <App />
-            </ContextProvider>
-      </StrictMode>
+      <ContextProvider>
+            <App />
+      </ContextProvider>
 );
