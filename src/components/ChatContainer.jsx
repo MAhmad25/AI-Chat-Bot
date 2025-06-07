@@ -24,8 +24,8 @@ const ChatContainer = () => {
                         </div>
                   ) : (
                         chatResponse && (
-                              <div className="w-fit min-w-full overflow-hidden px-3 pt-3   h-fit bg-black/60 backdrop-blur-xl rounded-xl ">
-                                    <pre className="text-xs fonts sm:text-xl tracking-tight text-white ">{chatResponse}</pre>
+                              <div className="w-fit min-w-full overflow-hidden px-3 py-3   h-fit bg-black/60 backdrop-blur-xl rounded-xl ">
+                                    <pre className="text-sm fonts sm:text-xl tracking-tight text-white ">{chatResponse}</pre>
                               </div>
                         )
                   )}
