@@ -6,7 +6,6 @@ const ChatContainer = () => {
       if (error) {
             toast.error(error);
       }
-
       return (
             <section className="w-full no-scroll  h-3/4 overflow-y-scroll">
                   {promptDiv ? (
@@ -26,7 +25,7 @@ const ChatContainer = () => {
                   ) : (
                         chatResponse && (
                               <div className="w-fit min-w-full overflow-hidden px-3 pt-3   h-fit bg-black/60 backdrop-blur-xl rounded-xl ">
-                                    <pre className="text-xs sm:text-xl tracking-tight text-white ">{chatResponse}</pre>
+                                    <pre className="text-xs fonts sm:text-xl tracking-tight text-white ">{chatResponse}</pre>
                               </div>
                         )
                   )}

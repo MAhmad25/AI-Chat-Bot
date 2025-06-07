@@ -31,10 +31,9 @@ const ContextProvider = (props) => {
                                           -Also Add Emojies to show emotion
                                           -Make each line 1/2 width it means the text is showing in Mobile Screen so it must be readable
                                           Note Very Important the above description is for rules only You just focus on the below prompt only
-                                          - Please don't write these things like "Okay, here's a
-                                          response formatted
+                                          - Please don't write these things like "Okay, here's a response formatted
                                           for mobile viewing
-                                          with emojis! 📱"
+                                          with emojis! 📱" in the response
                                           ${promptToSend}`,
                                     },
                               ],
