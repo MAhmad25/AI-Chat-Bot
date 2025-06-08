@@ -25,15 +25,30 @@ const ContextProvider = (props) => {
                               parts: [
                                     {
                                           text: `
-                                          Please respond in Markdown format and Please don't rewrite here is the what you want like text in actual response . Use:   
-                                          - Numbered lists (e.g. "1. First step")
-                                          - Bullet lists (e.g. "- item")
-                                          -Also Add Emojies to show emotion
-                                          -Make each line 1/2 width it means the text is showing in Mobile Screen so it must be readable
-                                          Note Very Important the above description is for rules only You just focus on the below prompt only
-                                          - Please don't write these things like "Okay, here's a response formatted
-                                          for mobile viewing
-                                          with emojis! 📱" in the response
+                                          Please respond using only valid HTML—no Markdown,no backticks, no extra commentary. Strictly follow these rules:
+                                          Do not wrap your output in any backticks or fences; emit only raw HTML.
+                                          1. **Structure & layout**  
+                                          2. **Inline highlighting**  
+                                             - For any important keyword or phrase and title of paragraph, wrap it in:  
+                                              <span style="background-color: black;color:  white;font-weight:600; padding:4px 3px; border-radius:7px;">…</span>  
+
+                                          3. **HTML tags to use**  
+                                            - <ol><li>…</li></ol> for numbered steps  
+                                            - <ul><li>…</li></ul> for bullet lists  
+                                            - <h1> <h4> for headings  
+                                            - <p> for paragraphs  
+                                            -  <br> for line breaking
+                                            - <strong> or <em> for emphasis  
+                                            - <hr> for separators  
+                                            <code>…</code> if there is any code example don't try to use it if code example is not neccessary for any code snippets (wrap inline or block code here) 
+
+                                          4. **Emojis**  
+                                             - Sprinkle 😊, 🚀, 🔥, etc. to convey tone.
+
+                                          5. **No chatter**  
+                                            - Do **not** include any framing text like “Here's your response…” or instructions to the user.
+                                          6.  Please try to write a long answer as much as you can
+                                          Now generate the HTML answer below and don't write like : backtick html:
                                           ${promptToSend}`,
                                     },
                               ],
