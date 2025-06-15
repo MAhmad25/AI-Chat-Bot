@@ -3,6 +3,7 @@ import { ChatPodia } from "../contexts/Context";
 import toast from "react-hot-toast";
 import parser from "html-react-parser";
 import DOMPurify from "dompurify";
+
 const ChatContainer = () => {
       const { chatResponse, promptDiv, loading, error } = useContext(ChatPodia);
       if (error) {
@@ -16,12 +17,15 @@ const ChatContainer = () => {
             });
             return parser(cleanHTML);
       }, [chatResponse]);
+
       return (
-            <section className="w-full no-scroll   h-3/4 overflow-y-scroll">
+            <section className="w-full no-scroll scroll-smooth  h-3/4 overflow-y-scroll">
                   {promptDiv ? (
-                        <div className="w-fit p-3 h-fit   mb-2 max-w-1/2 flex justify-center items-center  rounded-xl sm:rounded-l-none rounded-tl-none sm:rounded-bl-xl  sm:rounded-tr-xl bg-black/20">
-                              <p className="text-white tracking-tighter leading-5">{promptDiv} </p>
-                        </div>
+                        <section className="w-full flex justify-end  h-fit">
+                              <div className="w-fit p-3 h-fit   mb-2 max-w-1/2 flex justify-center items-center  rounded-xl sm:rounded-l-xl rounded-tr-xl sm:rounded-br-none  sm:rounded-tr-2xl bg-black/20">
+                                    <p className="text-white tracking-tighter leading-5">{promptDiv} </p>
+                              </div>
+                        </section>
                   ) : null}
                   {loading ? (
                         <div className="relative flex  w-64 animate-pulse gap-2 p-4">

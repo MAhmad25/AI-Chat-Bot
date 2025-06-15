@@ -30,16 +30,15 @@ const ContextProvider = (props) => {
                                           1. **Structure & layout**  
                                           2. **Inline highlighting**  
                                              - For any important keyword or phrase and title of paragraph, wrap it in:  
-                                              <span style="background-color: black;color:  white;font-weight:600; padding:4px 3px; border-radius:7px;">…</span>  
+                                              <span style="background-color: black;color:  white;font-weight:600; padding:4px 3px; border-radius:7px; margin: 0  5px ">…</span>  
 
-                                          3. **HTML tags to use**  
+                                          3. **HTML tags to must use Please**  
                                             - <ol><li>…</li></ol> for numbered steps  
                                             - <ul><li>…</li></ul> for bullet lists  
                                             - <h1> <h4> for headings  
                                             - <p> for paragraphs  
                                             -  <br> for line breaking
                                             - <strong> or <em> for emphasis  
-                                            - <hr> for separators  
                                             <code>…</code> if there is any code example don't try to use it if code example is not neccessary for any code snippets (wrap inline or block code here) 
 
                                           4. **Emojis**  
