@@ -2,9 +2,24 @@
 .no-scroll::-webkit-scrollbar {
       display: none;
 }
-.fonts {
-      font-family: "Satoshi", sans-serif;
+
+@font-face {
+      font-family: Nova;
+      src: url(../fonts/primary.ttf);
 }
+@font-face {
+      font-family: Fancy;
+      src: url(../fonts/fancy.ttf);
+}
+
+@theme {
+      --font-Nova: "Nova";
+      --font-alliance: "Alliance";
+      --font-fancy: "Fancy";
+      --font-Astralaga: "Astralaga";
+      --font-Search: "Search";
+}
+
 .loader {
       position: relative;
       width: 108px;

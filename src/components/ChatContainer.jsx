@@ -19,11 +19,11 @@ const ChatContainer = () => {
       }, [chatResponse]);
 
       return (
-            <section className="w-full no-scroll scroll-smooth  h-3/4 overflow-y-scroll">
+            <section className="w-full sm:container sm:w-1/2 sm:mx-auto no-scroll h-3/4 overflow-y-scroll">
                   {promptDiv ? (
                         <section className="w-full flex justify-end  h-fit">
                               <div className="w-fit p-3 h-fit   mb-2 max-w-1/2 flex justify-center items-center  rounded-xl sm:rounded-l-xl rounded-tr-xl sm:rounded-br-none  sm:rounded-tr-2xl bg-black/20">
-                                    <p className="text-white tracking-tighter leading-5">{promptDiv} </p>
+                                    <p className="text-white font-fancy font-semibold  tracking-tighter leading-5">{promptDiv} </p>
                               </div>
                         </section>
                   ) : null}
@@ -38,7 +38,7 @@ const ChatContainer = () => {
                   ) : (
                         HTMLResponse && (
                               <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-black/40 backdrop-blur-xl rounded-xl ">
-                                    <p className="text-sm break-words fonts sm:text-xl tracking-tight text-white ">{HTMLResponse}</p>
+                                    <p className="text-sm break-words font-Nova sm:text-xl tracking-tight text-white ">{HTMLResponse}</p>
                               </div>
                         )
                   )}
