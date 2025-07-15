@@ -24,31 +24,7 @@ const ContextProvider = (props) => {
                         {
                               parts: [
                                     {
-                                          text: `
-                                          Please respond using only valid HTML—no Markdown,no backticks, no extra commentary. Strictly follow these rules:
-                                          Do not wrap your output in any backticks or fences; emit only raw HTML.
-                                          1. **Structure & layout**  
-                                          2. **Inline highlighting**  
-                                             - For any important keyword or phrase and title of paragraph, wrap it in:  
-                                              <span style="background-color: black;color:  white;font-weight:600; padding:4px 3px; border-radius:7px; margin: 0  5px ">…</span>  
-
-                                          3. **HTML tags to must use Please**  
-                                            - <ol><li>…</li></ol> for numbered steps  
-                                            - <ul><li>…</li></ul> for bullet lists  
-                                            - <h1> <h4> for headings  
-                                            - <p> for paragraphs  
-                                            -  <br> for line breaking
-                                            - <strong> or <em> for emphasis  
-                                            <code>…</code> if there is any code example don't try to use it if code example is not neccessary for any code snippets (wrap inline or block code here) 
-
-                                          4. **Emojis**  
-                                             - Sprinkle 😊, 🚀, 🔥, etc. to convey tone.
-
-                                          5. **No chatter**  
-                                            - Do **not** include any framing text like “Here's your response…” or instructions to the user.
-                                          6.  Please try to write a long answer as much as you can
-                                          Now generate the HTML answer below and don't write like : backtick html:
-                                          ${promptToSend}`,
+                                          text: promptToSend,
                                     },
                               ],
                         },
