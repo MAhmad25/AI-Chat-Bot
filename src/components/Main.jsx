@@ -1,5 +1,5 @@
-import ChatContainer from "./ChatContainer";
-import Header from "./Header";
+import ChatContainer from "./ChatContainer/ChatContainer";
+import Header from "./Header/Header";
 import UserInput from "./UserInput";
 
 const Main = () => {

@@ -1,0 +1,28 @@
+.container {
+      position: relative;
+      width: 160px;
+}
+
+.container > * {
+      width: 140px;
+      height: 2rem;
+      border: solid 1px #bebebe;
+      background-color: #1f1f1f;
+      position: absolute;
+      border-radius: 10px;
+      padding: 5;
+      color: #fff;
+      box-shadow: 0px 8px 20px -10px #bbbbbb;
+      text-shadow: 0px 0px 5px #fff;
+      letter-spacing: 1px;
+      background-image: radial-gradient(circle 160px at 50% 120%, #353535, #1f1f1f);
+}
+
+.card1 {
+      width: 100px;
+      margin: -7px 0px 0px 20px;
+}
+.card2 {
+      width: 120px;
+      margin: -4px 0px 0px 10px;
+}
