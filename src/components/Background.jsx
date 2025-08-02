@@ -1,9 +1,9 @@
-import { Neat } from "./Design/Neat";
+import SilkWave from "./Design/SilkWave";
 
 const Background = () => {
       return (
             <section className="w-full  pointer-events-none overflow-hidden h-full">
-                  <Neat />
+                  <SilkWave />
             </section>
       );
 };
