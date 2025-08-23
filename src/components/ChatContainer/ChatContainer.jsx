@@ -15,7 +15,7 @@ const ChatContainer = () => {
                   letters.forEach((letter, i) => {
                         let span = document.createElement("span");
                         span.textContent = letter;
-                        span.style.animationDelay = `${i * 0.05}s`;
+                        span.style.animationDelay = `${i * 0.03}s`;
                         glowInText.append(span);
                   });
             });
@@ -26,7 +26,7 @@ const ChatContainer = () => {
                   {promptDiv ? (
                         <section className="w-full  flex justify-end h-fit">
                               <div className="w-fit sm:w-4/5  h-fit mb-2  flex justify-end items-end">
-                                    <p className="text-white/90 rounded-xl sm:rounded-l-xl rounded-tr-xl sm:rounded-br-none  sm:rounded-tr-2xl  bg-[#303030]  px-5 py-2 tracking-tighter leading-5">{promptDiv} </p>
+                                    <p className="text-white/90 rounded-xl sm:rounded-l-xl rounded-tr-xl sm:rounded-br-none  sm:rounded-tr-2xl  bg-[#303030] mix-blend-difference  px-5 py-2 tracking-tight sm:text-2xl ">{promptDiv} </p>
                               </div>
                         </section>
                   ) : null}
@@ -34,8 +34,8 @@ const ChatContainer = () => {
                         <p className={styles.shine}>Thinking</p>
                   ) : (
                         chatResponse && (
-                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030] mix-blend-difference  rounded-xl ">
-                                    <p className="text-sm break-words  sm:text-xl tracking-tight text-white glowIn ">{chatResponse}</p>
+                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]   rounded-xl ">
+                                    <p className="text-xl break-words  sm:text-xl tracking-tight text-white glowIn ">{chatResponse}</p>
                               </div>
                         )
                   )}
