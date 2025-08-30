@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { ChatPodia } from "../../contexts/Context";
 import toast from "react-hot-toast";
+import Markdown from "react-markdown";
 import styles from "./loader.module.css";
 const ChatContainer = () => {
       const { chatResponse, promptDiv, loading, error } = useContext(ChatPodia);
@@ -34,8 +35,8 @@ const ChatContainer = () => {
                         <p className={styles.shine}>Thinking</p>
                   ) : (
                         chatResponse && (
-                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]   rounded-xl ">
-                                    <p className="text-xl break-words  sm:text-xl tracking-tight text-white glowIn ">{chatResponse}</p>
+                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]   rounded-xl text-xl break-words  sm:text-xl tracking-tight text-white">
+                                    <Markdown>{chatResponse}</Markdown>
                               </div>
                         )
                   )}
