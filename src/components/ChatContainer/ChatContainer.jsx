@@ -27,7 +27,7 @@ const ChatContainer = () => {
                   {promptDiv ? (
                         <section className="w-full  flex justify-end h-fit">
                               <div className="w-fit sm:w-4/5  h-fit mb-2  flex justify-end items-end">
-                                    <p className="text-white/90 rounded-xl sm:rounded-l-xl rounded-tr-xl sm:rounded-br-none  sm:rounded-tr-2xl  bg-[#303030] mix-blend-difference  px-5 py-2 tracking-tight sm:text-2xl ">{promptDiv} </p>
+                                    <p className="text-white/90 rounded-xl sm:rounded-l-xl rounded-tr-xl sm:rounded-br-none  sm:rounded-tr-2xl  bg-[#4c537c]   px-5 py-2 tracking-tight sm:text-2xl ">{promptDiv} </p>
                               </div>
                         </section>
                   ) : null}
