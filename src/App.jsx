@@ -1,17 +1,12 @@
-// import Background from "./components/Background";
 import Loader from "./components/Design/Loader/Loader";
 import Main from "./components/Main";
 import { Toaster } from "react-hot-toast";
-import Unicorn from "./components/Unicorn";
 
 const App = () => {
       return (
             <main className="relative overflow-hidden text-white w-full h-dvh">
                   <Loader />
-                  {/* <Background /> */}
-                  <div className="w-screen h-screen">
-                        <Unicorn />
-                  </div>
+                  <div className="absolute inset-0 -z-10 h-full w-full items-center px-5  [background:radial-gradient(125%_125%_at_50%_10%,#000000_20%,#63e_100%)]" />
                   <Main />
                   <Toaster />
             </main>

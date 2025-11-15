@@ -23,7 +23,7 @@ const ChatContainer = () => {
       }, [chatResponse]);
 
       return (
-            <section className="w-full px-5 sm:container sm:w-1/2 sm:mx-auto font-Nova [&::-webkit-scrollbar]:hidden h-3/4 overflow-y-scroll">
+            <section className="w-full mr-5 px-5 sm:px-0 sm:container sm:w-1/2  font-Nova [&::-webkit-scrollbar]:hidden h-[80%] mt-10 overflow-y-scroll">
                   {promptDiv ? (
                         <section className="w-full  flex justify-end h-fit">
                               <div className="w-fit sm:w-4/5  h-fit mb-2  flex justify-end items-end">

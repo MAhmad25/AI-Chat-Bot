@@ -1,11 +1,10 @@
 import { useGSAP } from "@gsap/react";
-import styles from "./style.module.css";
 import gsap from "gsap";
 import { useRef } from "react";
 const Loader = () => {
       const containerRef = useRef(null);
       useGSAP(() => {
-            gsap.timeline()
+            gsap.timeline({ defaults: { duration: 1 } })
                   .set("svg", { opacity: 1 })
                   .fromTo(
                         "#m image",
@@ -16,14 +15,13 @@ const Loader = () => {
                                     href: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAADIAgMAAABjd/t7AAAADFBMVEX///8MDAxhYWGxsbHv8xTCAAAEvklEQVR4Ae3YBWwbVxzH8Re/olEwFEOZyWlIRTGM/+ecXaX4InkZMzOT8Hm1M96eKydlDix2mVvRtWO+VOGobIcm2Rcxw/sNHPD/CT/6Hp+Zzp+Jd/H8DJQbpB4OS9KrrypM/m4oRAPfa9Z91SyTX+TCocREZejVS6r7l+UX7ZvM9MDYWr26a3Ug386b6trOtfgNzXokjzPfD82X1ns6hWa9pjD5SLT19aUJ0qvzcOa3/GKp6HINr5ZSrx46159fWGFPoLOG9OrMKAyeip3zXqgxNesfZwrzQvjchB+Ebj3mzOnbAiO9gjTrtzqzPBm/XKv064Vj3k+1WSIiTDuj5BlFutunOtPftfeknRCE0ZdcTHe0T8lq1hc5c8bFzpZ0eU6zvnh0Ud7S0tucEpp1XrjDsqXbR2bYpFkf78xM6vWcukqkVx83qsffq76a0t3uzhQmH7bbtiRjmnWfo7MzBr+UVKRZ7x/dBavTr6sXTc36ZWcRzBoPZyOa20t+cxbZ19uNWJtm3dXtLLyvnN+Yq/9es55xcN44M32SNLdzR+dsSfq0G6YHNsdbhi3NOnP0wJJP9gdO7TExOnP3tPqaBwTD/FT8vnIo/C1KDyQe76z9MMYwm95tJTo+Go5i0v3tue/qLzeQdrgqf5k/e2jOzodTKH1kZOBgLCExW34Jb6vi8uEkRudVbNfP4chVjM62/eYnMyRB+uXGk9RgE0hnjbwmGwG1B1xdmZ6PCNbua4w+CdO9LhWlEKx9yUMHCXXM83nz+s+K+1F6hg8P07OE0tnl16lOgPTO/nndcTOK0dmhHF8YJQLp/MTDLClR+sL37NYkrL1zcM/2coHSl8xtYZ17Ufqsio8u24TSPdlmY6xA6X7r0CbcUceCw3sNmM6DkUNSonRv7yeHLILpvlzTZJzuktubYDqvX131oUTpvs/rTnMF0zvjj3gkbss3ryollM5+bOiyOmD6vPqd55UJ0y/+jHu2CfQblmHDdCYTdQr2bSHru1EH2/L+ysZDkmBb3h8fTMF0/yuJMK6dZ9oFUH9kirBhuneJ7MTpnJuXgfouuvN7nN5kbsLpLlp9Kg7TM/Ll0iDwbWJ16hpOb96zOozTB7Y2NkiUzk7TxrmTYfoSetzCtZ9SK7IwnTcPRYWCtXelIkQwfT6tTuH0g9JQEqYHiK7i2v0mNeH0EjIJ2E6mwOluM2oImO6LSboK0yuJCNc+JUkGwXQ7aYRw7aVk2Lj2xbZhSlz7ZEEmTB9rUYRg+kSiVRKni0Q1Tq+0DOD5HjTihNMnmwqpK6ReISmO0ysVAdvdbyLvsONyEtg+1kTqEwUBdU4Kqj8I1NmWE8h2uVcBdUUSqDdtRe73jo+Q7UPNFrB9+GsJ1H+UBNRvDiP18/Q/1qMCqBORCdNdoga45f21BNUV8kpLZOJ09j0RUP8Bqk8nAdT7JLI9SUj9e4XU58SRuvUSUp/yogDqC6BvUrebSL1cQHWF1MdGoe1QvTSO1IMCqU+Enu8lhNT5EFJ3pf6/W/4gtN2F3e9PQnVC6j7r/3vM+0ykHrShehNSryCkXiqhWx7a7lZI/Sj2eZ6QugXVv4fqhNQ5QC+2F/WiXtSLV5uiXjzq/st6Uf8bLmU4mJ352AMAAAAASUVORK5CYII=",
                               },
                         },
-                        { duration: 1, scaleX: 1.2, x: 0, ease: "steps(9)", stagger: 2 },
-                        0
+                        { scaleX: 1.2, x: 100, ease: "sine.inOut", stagger: 0.6 }
                   )
-                  .to("text", { duration: 3, transformOrigin: "50%", scale: 1.1, rotate: 0.1, ease: "none" }, 0)
-                  .to(containerRef.current, { scaleY: 0 });
+                  .to("text", { transformOrigin: "50%", scale: 1.2, rotate: 0.1, ease: "none" })
+                  .to(containerRef.current, { opacity: 0, filter: "blur(50px)", onComplete: () => (containerRef.current.style.display = "none") }, "-=0.9");
       });
       return (
-            <div ref={containerRef} className="w-screen origin-top bg-zinc-800 z-50 flex justify-center items-center absolute to-0 left-0 h-screen">
+            <div ref={containerRef} className="w-screen pointer-events-none  origin-top [background:radial-gradient(125%_125%_at_50%_10%,#000000_20%,#63e_100%)] z-50 flex justify-center items-center absolute to-0 left-0 h-screen">
                   <svg opacity="0" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                               <mask id="m">
@@ -36,7 +34,7 @@ const Loader = () => {
                         </defs>
                         <g mask="url(#m)">
                               <text x="290" y="50" text-anchor="middle" font-size="50" fill="#fff">
-                                    Just a Normal Text Bot
+                                    Just a Text Bot
                               </text>
                         </g>
                   </svg>
