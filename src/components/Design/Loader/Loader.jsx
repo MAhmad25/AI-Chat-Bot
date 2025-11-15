@@ -4,7 +4,7 @@ import { useRef } from "react";
 const Loader = () => {
       const containerRef = useRef(null);
       useGSAP(() => {
-            gsap.timeline({ defaults: { duration: 1 } })
+            gsap.timeline({ defaults: { duration: 1.1 } })
                   .set("svg", { opacity: 1 })
                   .fromTo(
                         "#m image",
@@ -21,7 +21,7 @@ const Loader = () => {
                   .to(containerRef.current, { opacity: 0, filter: "blur(50px)", onComplete: () => (containerRef.current.style.display = "none") }, "-=0.9");
       });
       return (
-            <div ref={containerRef} className="w-screen pointer-events-none  origin-top [background:radial-gradient(125%_125%_at_50%_10%,#000000_20%,#63e_100%)] z-50 flex justify-center items-center absolute to-0 left-0 h-screen">
+            <div ref={containerRef} className="w-screen pointer-events-none  origin-top [background:radial-gradient(125%_125%_at_50%_10%,#000000_40%,#63e_100%)] z-50 flex justify-center items-center absolute to-0 left-0 h-screen">
                   <svg opacity="0" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                               <mask id="m">
