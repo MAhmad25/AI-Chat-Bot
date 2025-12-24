@@ -5,9 +5,10 @@ import Markdown from "react-markdown";
 import styles from "./loader.module.css";
 const ChatContainer = () => {
       const { chatResponse, promptDiv, loading, error } = useContext(ChatPodia);
-      if (error) {
-            toast.error(error);
-      }
+
+      useEffect(() => {
+            if (error) toast.error(error);
+      }, [error]);
       useEffect(() => {
             let glowInTexts = document.querySelectorAll(".glowIn");
             glowInTexts.forEach((glowInText) => {
@@ -35,7 +36,7 @@ const ChatContainer = () => {
                         <p className={styles.shine}>Thinking</p>
                   ) : (
                         chatResponse && (
-                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]   rounded-xl text-xl break-words  sm:text-xl tracking-tight text-white">
+                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]  rounded-xl text-xl break-words  sm:text-xl tracking-tight text-white">
                                     <Markdown>{chatResponse}</Markdown>
                               </div>
                         )

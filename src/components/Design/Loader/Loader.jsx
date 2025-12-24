@@ -25,15 +25,15 @@ const Loader = () => {
                   <svg opacity="0" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                               <mask id="m">
-                                    <image width="500" height="200" href="" />
-                                    <image width="500" height="200" href="" filter="url(#f)" />
+                                    <image width="500" height="200" href={null} />
+                                    <image width="500" height="200" href={null} filter="url(#f)" />
                               </mask>
                               <filter id="f">
                                     <feColorMatrix in="SourceGraphic" type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0" />
                               </filter>
                         </defs>
                         <g mask="url(#m)">
-                              <text x="290" y="50" text-anchor="middle" font-size="50" fill="#fff">
+                              <text x="290" y="50" textAnchor="middle" fontSize="50" fill="#fff">
                                     Just a Text Bot
                               </text>
                         </g>

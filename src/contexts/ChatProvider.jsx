@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChatPodia } from "./Context.js";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -13,10 +13,25 @@ const ContextProvider = (props) => {
       const API_KEY = import.meta.env.VITE_API_KEY;
       const FULLURL = `${BASE_URL}?key=${API_KEY}`;
 
+      const lastRequestAt = useRef(0);
+
       const generateMessage = async () => {
+            // prevent duplicate concurrent requests
+            if (loading) {
+                  toast.error("A request is already in progress");
+                  return;
+            }
+
+            const now = Date.now();
+            // basic debounce: ignore repeated sends within 1s
+            if (now - lastRequestAt.current < 1000) {
+                  toast.error("Please wait a moment before sending another message");
+                  return;
+            }
+
             let promptToSend = userPrompt.trim();
             if (!promptToSend) {
-                  toast.error("Please ask someting");
+                  toast.error("Please ask something");
                   return;
             }
             const payLoad = {
@@ -32,6 +47,8 @@ const ContextProvider = (props) => {
             };
             try {
                   setLoading(true);
+                  lastRequestAt.current = now;
+                  console.debug("Sending request to API", { url: FULLURL, time: new Date(now).toISOString() });
                   const { data } = await axios.post(FULLURL, payLoad, {
                         headers: {
                               "Content-Type": "application/json",
@@ -40,7 +57,15 @@ const ContextProvider = (props) => {
                   setLoading(false);
                   setChatResponse(data.candidates[0].content.parts[0].text);
             } catch (error) {
-                  setError(error.message);
+                  setLoading(false);
+                  // handle rate limit explicitly
+                  if (error?.response?.status === 429) {
+                        toast.error("Rate limit exceeded — please try again in a moment.");
+                        setError("Rate limit exceeded. Please wait before retrying.");
+                        return;
+                  }
+
+                  setError(error.response?.data?.message || error.message || "Something went wrong");
             }
       };
       const appState = {

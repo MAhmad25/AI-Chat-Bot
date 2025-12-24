@@ -3,7 +3,7 @@ import { BsFillSendFill } from "react-icons/bs";
 import { ChatPodia } from "../contexts/Context";
 
 const UserInput = () => {
-      const { userPrompt, setUserPrompt, setPromptDiv, generateMessage } = useContext(ChatPodia);
+      const { userPrompt, setUserPrompt, setPromptDiv, generateMessage, loading } = useContext(ChatPodia);
       return (
             <section className="w-full z-10 absolute bottom-3  sm:mx-auto sm:w-screen py-3  flex justify-center gap-2 px-2 items-end">
                   <div className="flex flex-col justify-end w-full sm:w-1/2">
@@ -11,11 +11,13 @@ const UserInput = () => {
                   </div>
                   <button
                         onClick={() => {
+                              if (loading) return;
                               generateMessage();
                               setPromptDiv(userPrompt);
                               setUserPrompt("");
                         }}
-                        className="rounded-full bg-[#303030] md:mix-blend-difference p-4 flex  cursor-pointer justify-center items-center"
+                        disabled={loading}
+                        className={`rounded-full bg-[#303030] md:mix-blend-difference p-4 flex  cursor-pointer justify-center items-center ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
                   >
                         <BsFillSendFill fontWeight="600" size="1rem" color="white" />
                   </button>

@@ -1,7 +1,6 @@
 import Loader from "./components/Design/Loader/Loader";
-import Main from "./components/Main";
 import { Toaster } from "react-hot-toast";
-
+import Main from "./components/Main";
 const App = () => {
       return (
             <main className="relative overflow-hidden text-white w-full h-dvh">
