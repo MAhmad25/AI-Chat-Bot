@@ -34,13 +34,22 @@ const ContextProvider = (props) => {
 
             try {
                   setLoading(true);
+                  setError(false);
+                  setChatResponse("");
                   lastRequestAt.current = now;
-                  const response = await ai.models.generateContent({
+                  const streamingResult = await ai.models.generateContentStream({
                         model: "gemini-3-flash-preview",
                         contents: promptToSend,
                   });
+
+                  for await (const chunk of streamingResult) {
+                        const rawText = chunk?.text;
+                        const chunkText = typeof rawText === "function" ? rawText() : rawText;
+                        if (!chunkText) continue;
+                        setChatResponse((prev) => prev + chunkText);
+                  }
+
                   setLoading(false);
-                  setChatResponse(response.text);
             } catch (error) {
                   setLoading(false);
                   if (error?.response?.status === 429) {

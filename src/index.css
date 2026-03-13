@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "../node_modules/streamdown/dist/*.js";
+
 @font-face {
       font-family: Nova;
       src: url(../fonts/primary.ttf);

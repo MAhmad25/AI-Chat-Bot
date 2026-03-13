@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
 import { ChatPodia } from "../../contexts/Context";
 import toast from "react-hot-toast";
-import Markdown from "react-markdown";
 import styles from "./loader.module.css";
+import { Streamdown } from "streamdown";
+import "streamdown/styles.css";
 const ChatContainer = () => {
       const { chatResponse, promptDiv, loading, error } = useContext(ChatPodia);
-
       useEffect(() => {
             if (error) toast.error(error);
       }, [error]);
@@ -32,14 +32,21 @@ const ChatContainer = () => {
                               </div>
                         </section>
                   ) : null}
-                  {loading ? (
-                        <p className={styles.shine}>Thinking</p>
-                  ) : (
-                        chatResponse && (
-                              <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]  rounded-xl text-xl break-words  sm:text-xl tracking-tight text-white">
-                                    <Markdown>{chatResponse}</Markdown>
-                              </div>
-                        )
+                  {loading && !chatResponse ? <p className={styles.shine}>Thinking</p> : null}
+                  {chatResponse && (
+                        <div className="w-fit min-w-full overflow-hidden px-3 py-3 h-fit bg-[#303030]  rounded-xl text-xl break-words  sm:text-xl tracking-tight text-white">
+                              <Streamdown
+                                    animated={{
+                                          animation: "slideUp",
+                                          duration: 400,
+                                          easing: "ease-out",
+                                          sep: "char",
+                                    }}
+                                    isAnimating={loading}
+                              >
+                                    {chatResponse}
+                              </Streamdown>
+                        </div>
                   )}
             </section>
       );
