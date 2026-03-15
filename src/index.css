@@ -8,8 +8,6 @@
 
 @theme {
       --font-Nova: "Nova";
-      --font-alliance: "Alliance";
-      --font-fancy: "Fancy";
-      --font-Astralaga: "Astralaga";
-      --font-Search: "Search";
+      --color-box: #ff450099;
+      --color-bl: #271814;
 }
