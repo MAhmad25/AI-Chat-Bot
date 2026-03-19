@@ -38,7 +38,7 @@ const UserInput = () => {
       const isExpanded = isFocused || userPrompt.length > 0;
 
       return (
-            <section className="w-full z-10 absolute bottom-3 sm:mx-auto sm:w-screen py-3 flex justify-center px-2 items-end">
+            <section className="w-full z-10 absolute bottom-10 md:bottom-3 sm:mx-auto sm:w-screen py-3 flex justify-center px-2 items-end">
                   <div
                         className={`
           flex items-center
